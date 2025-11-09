@@ -1,0 +1,124 @@
+/* ====== Global Styling ====== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+header, footer {
+  background-color: #0078d7;
+  color: white;
+  padding: 1rem;
+}
+
+section {
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ====== 🎨 Part 1: CSS Transitions & Keyframes ====== */
+
+/* Button hover effect */
+.animated-btn {
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-btn:hover {
+  transform: scale(1.1);
+  background-color: #005fa3;
+}
+
+/* Card flip animation */
+.card {
+  width: 150px;
+  height: 150px;
+  margin: 2rem auto;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.card-front {
+  background-color: #0078d7;
+  color: white;
+}
+
+.card-back {
+  background-color: #ffcc00;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+/* ====== 🎬 Part 3: JS-Controlled Animation ====== */
+
+#animatedBox {
+  width: 100px;
+  height: 100px;
+  background-color: #0078d7;
+  border-radius: 10px;
+  margin: 2rem auto;
+  position: relative;
+  transition: background-color 0.5s;
+}
+
+/* Moving animation (triggered by JS) */
+.move {
+  animation: moveBox 3s linear infinite alternate;
+}
+
+@keyframes moveBox {
+  0% { transform: translateX(0); background-color: #0078d7; }
+  50% { transform: translateX(150px); background-color: #ff4081; }
+  100% { transform: translateX(0); background-color: #4caf50; }
+}
+
+.controls button {
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.controls button:hover {
+  background-color: #005fa3;
+}
